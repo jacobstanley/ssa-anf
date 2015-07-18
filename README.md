@@ -7,3 +7,7 @@ algorithm presented in [1].
 1. M. Chakravarty, G. Keller, and P. Zadarnowski.
    [A Functional Perspective on SSA Optimisation Algorithms](https://www.jantar.org/papers/chakravarty03perspective.pdf)
    COCV 2003.
+
+## Example Conversion
+
+![SSA -> ANF](https://github.com/jystic/ssa-anf/raw/master/doc/convert.png)
