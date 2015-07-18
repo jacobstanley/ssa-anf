@@ -39,7 +39,7 @@ data Block n = Phi     n (Map (Label n) (Atom n)) (Block n)
              | Copy    n (Atom n)                 (Block n)
              | Call    n (Atom n) [Atom n]        (Block n)
              | GoTo    n
-             | RetVar    (Atom n)
+             | RetCopy   (Atom n)
              | RetCall   (Atom n) [Atom n]
              | Cond      (Atom n) (Block n) (Block n)
   deriving (Eq, Ord, Show)

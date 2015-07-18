@@ -4,16 +4,18 @@ module Main where
 
 import qualified Data.Map as Map
 
-import           SSA
+import           ANF.Pretty
 import           Convert
+import           SSA
+import           SSA.Pretty
 
 main :: IO ()
 main = do
     putStrLn "=== SSA ==="
-    print ssaFac
+    printProgram ssaFac
 
-    putStrLn "=== ANF ==="
-    print (convert ssaFac)
+    putStrLn "\n=== ANF ==="
+    printExpr (convert ssaFac)
 
 ssaFac :: Program String
 ssaFac =
@@ -30,7 +32,7 @@ ssaFac =
                                    (Call "r1" (Var "mul") [Var "r0", Var "x0"] $
                                     Call "x1" (Var "sub") [Var "x0", Const 1]  $
                                     GoTo "L1")
-                                   (RetVar (Var "r0")))) $
+                                   (RetCopy (Var "r0")))) $
 
     Entry (RetCall (Var "fac") [Const 10])
 
