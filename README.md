@@ -10,4 +10,4 @@ algorithm presented in [1].
 
 ## Example Conversion
 
-![SSA -> ANF](https://github.com/jystic/ssa-anf/raw/master/doc/convert.png)
+<img src="https://github.com/jystic/ssa-anf/raw/master/doc/convert.png" width="252" height="600" />
