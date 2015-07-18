@@ -34,5 +34,5 @@ ppExpr expr = case expr of
     LetCopy n   x  e -> kw "let" <+> letName n <+> op "=" <+> ppAtom x <$> ppExpr e
     LetCall n f xs e -> kw "let" <+> letName n <+> op "=" <+> ppAtom f <+> ppAtoms xs <$> ppExpr e
     LetRec      bs e -> kw "letrec" <+> ppBindings bs <$> kw "in" <$> text "  " <> align (ppExpr e)
-    Cond    i t e    -> kw "if" <+> ppAtom i <$> kw "then" <+> align (ppExpr t)
-                                             <$> kw "else" <+> align (ppExpr e)
+    Cond    i t e    -> kw "if" <+> ppAtom i <+> kw "then" <$> text "  " <> align (ppExpr t)
+                                             <$> kw "else" <$> text "  " <> align (ppExpr e)
