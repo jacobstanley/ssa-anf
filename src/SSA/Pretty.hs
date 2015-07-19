@@ -23,7 +23,7 @@ ppAtoms :: Pretty n => [Atom n] -> Doc
 ppAtoms = tuple . map ppAtom
 
 ppLabel :: Pretty n => Label n -> Doc
-ppLabel Start     = var "start"
+ppLabel Start     = var ("start" :: String)
 ppLabel (Label n) = var n
 
 ppPhiArg :: Pretty n => Label n -> Atom n -> Doc

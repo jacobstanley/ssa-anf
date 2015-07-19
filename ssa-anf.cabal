@@ -20,3 +20,6 @@ executable ssa-anf
       base           >= 4.8 && < 4.9
     , ansi-wl-pprint >= 0.6
     , containers     >= 0.5
+
+  ghc-options:
+    -Wall

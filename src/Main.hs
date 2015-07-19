@@ -14,18 +14,28 @@ import qualified SSA.ToANF as ToANF
 
 main :: IO ()
 main = do
+    printAll ssaFac
+    printAll ssaSeven
+
+------------------------------------------------------------------------
+
+printAll :: Program String -> IO ()
+printAll ssa = do
     putStrLn "=== SSA ==="
-    printProgram ssaSeven
+    printProgram ssa
+    putStrLn ""
 
-    let anf = ToANF.convert ssaSeven
+    let anf = ToANF.convert ssa
 
-    putStrLn "\n=== ANF ==="
+    putStrLn "=== ANF ==="
     printExpr anf
+    putStrLn ""
 
-    let info = analyse anf prims
+    let anf' = sccp prims anf
 
-    putStrLn "\n=== ANF SCCP ==="
-    print info
+    putStrLn "=== ANF SCCP ==="
+    printExpr anf'
+    putStrLn ""
 
 ------------------------------------------------------------------------
 
@@ -71,13 +81,3 @@ ssaSeven =
                                (RetCopy (Const 7)))) $
 
     Entry (RetCall (Var "seven") [Const 10])
-
---proc seven(x) {
---goto L1
---L1:x0 ← φ(start:1, L1:x1)
---x1 ← sub(x0, 1)
---if x1 then
---goto L1
---else
---ret 7
---}

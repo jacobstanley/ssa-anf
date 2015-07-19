@@ -68,7 +68,7 @@ paramsOfBinding _                  ns = ns
 ------------------------------------------------------------------------
 
 argsOfJump :: (Show n, Ord n) => SSA.Block n -> SSA.Label n -> [ANF.Atom n] -> [ANF.Atom n]
-argsOfJump (SSA.Phi  n gs  b) l xs = atomOfAtom (mapLookup l gs) : argsOfJump b l xs
+argsOfJump (SSA.Phi  _ gs  b) l xs = atomOfAtom (mapLookup l gs) : argsOfJump b l xs
 argsOfJump (SSA.Copy _ _   b) l xs = argsOfJump b l xs
 argsOfJump (SSA.Call _ _ _ b) l xs = argsOfJump b l xs
 argsOfJump (SSA.If   _ t e)   l xs = argsOfJump t l (argsOfJump e l xs)

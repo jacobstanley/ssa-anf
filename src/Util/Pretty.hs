@@ -14,10 +14,10 @@ var :: Pretty a => a -> Doc
 var x = cyan (pretty x)
 
 kw :: String -> Doc
-kw name = dullblue (text name)
+kw xs = dullblue (text xs)
 
 op :: String -> Doc
-op name = dullyellow (text name)
+op xs = dullyellow (text xs)
 
 eos :: Doc
 eos = dullblack semi
