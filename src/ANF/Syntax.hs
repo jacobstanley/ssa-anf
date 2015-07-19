@@ -1,8 +1,6 @@
-module ANF.Syntax where
-
-------------------------------------------------------------------------
--- Administrative Normal Form (ANF)
-
+-- | The abstract syntax of Administrative Normal Form (ANF)
+--
+-- @
 -- e ::= v
 --     | v(v)
 --     | let x = v in e
@@ -16,6 +14,8 @@ module ANF.Syntax where
 -- fs ::= f; f | epsilon
 -- x  ::= variable
 -- c  ::= constant
+-- @
+module ANF.Syntax where
 
 ------------------------------------------------------------------------
 

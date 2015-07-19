@@ -1,11 +1,8 @@
-module SSA.Syntax where
-
-import Data.Map (Map)
-
-------------------------------------------------------------------------
--- Structured SSA Form - a variant of Single Static Assignment (SSA) in
--- which the dominator tree is explicitly encoded in the block structure.
-
+-- | The abstract syntax of structured SSA form - a variant of Static Single
+--   Assignment (SSA) in which the dominator tree is explicitly encoded in the
+--   block structure.
+--
+-- @
 -- p  ::= proc x(xs) {b} p | e
 -- b  ::= e | b; x:e | b1; x:{b2}
 -- e  ::= x <- phi(gs); e
@@ -23,6 +20,10 @@ import Data.Map (Map)
 -- gs ::= g, gs | epsilon
 -- x  ::= variable or label
 -- c  ::= constant
+-- @
+module SSA.Syntax where
+
+import Data.Map (Map)
 
 ------------------------------------------------------------------------
 
