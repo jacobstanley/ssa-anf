@@ -23,13 +23,15 @@ data Atom n = Var   n
             | Const Integer
   deriving (Eq, Ord, Show)
 
-data Binding n = Binding n [n] (Expr n)
+data Tail n = Copy (Atom n)
+            | Call (Atom n) [Atom n]
   deriving (Eq, Ord, Show)
 
-data Expr n = Copy      (Atom n)
-            | Call      (Atom n)    [Atom n]
-            | LetCopy n (Atom n)             (Expr n)
-            | LetCall n (Atom n)    [Atom n] (Expr n)
-            | LetRec    [Binding n]          (Expr n)
-            | Cond      (Atom n)    (Expr n) (Expr n)
+data Binding n = Bind n [n] (Expr n)
+  deriving (Eq, Ord, Show)
+
+data Expr n = Return (Tail n)
+            | If     (Atom n) (Expr n) (Expr n)
+            | Let  n (Tail n) (Expr n)
+            | LetRec [Binding n] (Expr n)
   deriving (Eq, Ord, Show)

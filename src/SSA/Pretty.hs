@@ -37,10 +37,10 @@ ppBlock block = case block of
     Phi     n   gs b -> letName n <+> op "←" <+> op "φ" <> ppPhiArgs gs <> eos <$> ppBlock b
     Copy    n   x  b -> letName n <+> op "←" <+> ppAtom x               <> eos <$> ppBlock b
     Call    n f xs b -> letName n <+> op "←" <+> ppAtom f <> ppAtoms xs <> eos <$> ppBlock b
-    GoTo    n        -> kw "goto" <+> var n                  <> eos
+    Goto    n        -> kw "goto" <+> var n                  <> eos
     RetCopy     x    -> kw "ret"  <+> ppAtom x               <> eos
     RetCall   f xs   -> kw "ret"  <+> ppAtom f <> ppAtoms xs <> eos
-    Cond    i t e    -> kw "if" <+> ppAtom i <+> kw "then" <$> text "  " <> align (ppBlock t)
+    If      i t e    -> kw "if" <+> ppAtom i <+> kw "then" <$> text "  " <> align (ppBlock t)
                                              <$> kw "else" <$> text "  " <> align (ppBlock e)
 
 ppBlocks :: Pretty n => Blocks n -> Doc

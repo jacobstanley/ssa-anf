@@ -35,13 +35,13 @@ data Label n = Start
              | Label n
   deriving (Eq, Ord, Show)
 
-data Block n = Phi     n (Map (Label n) (Atom n)) (Block n)
-             | Copy    n (Atom n)                 (Block n)
-             | Call    n (Atom n) [Atom n]        (Block n)
-             | GoTo    n
-             | RetCopy   (Atom n)
-             | RetCall   (Atom n) [Atom n]
-             | Cond      (Atom n) (Block n) (Block n)
+data Block n = Phi   n (Map (Label n) (Atom n)) (Block n)
+             | Copy  n (Atom n)                 (Block n)
+             | Call  n (Atom n) [Atom n]        (Block n)
+             | Goto  n
+             | RetCopy (Atom n)
+             | RetCall (Atom n) [Atom n]
+             | If      (Atom n) (Block n) (Block n)
   deriving (Eq, Ord, Show)
 
 data Blocks n = BlockStart               (Block  n)
