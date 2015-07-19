@@ -3,7 +3,7 @@ module ANF.Pretty (printExpr) where
 import Prelude hiding ((<$>))
 import Text.PrettyPrint.ANSI.Leijen
 
-import ANF
+import ANF.Syntax
 import Util.Pretty
 
 ------------------------------------------------------------------------

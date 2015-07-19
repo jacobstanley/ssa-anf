@@ -5,7 +5,7 @@ import qualified Data.Map as Map
 import           Prelude hiding ((<$>))
 import           Text.PrettyPrint.ANSI.Leijen
 
-import           SSA
+import           SSA.Syntax
 import           Util.Pretty
 
 ------------------------------------------------------------------------

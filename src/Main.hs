@@ -5,9 +5,9 @@ module Main where
 import qualified Data.Map as Map
 
 import           ANF.Pretty
-import           Convert
-import           SSA
 import           SSA.Pretty
+import           SSA.Syntax
+import qualified SSA.ToANF as ToANF
 
 main :: IO ()
 main = do
@@ -15,7 +15,7 @@ main = do
     printProgram ssaFac
 
     putStrLn "\n=== ANF ==="
-    printExpr (convert ssaFac)
+    printExpr (ToANF.convert ssaFac)
 
 ssaFac :: Program String
 ssaFac =

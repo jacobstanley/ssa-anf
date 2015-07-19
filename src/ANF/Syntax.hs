@@ -1,4 +1,4 @@
-module ANF where
+module ANF.Syntax where
 
 ------------------------------------------------------------------------
 -- Administrative Normal Form (ANF)
@@ -18,7 +18,6 @@ module ANF where
 -- c  ::= constant
 
 ------------------------------------------------------------------------
--- Types
 
 data Atom n = Var   n
             | Const Integer

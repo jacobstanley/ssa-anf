@@ -1,4 +1,4 @@
-module SSA where
+module SSA.Syntax where
 
 import Data.Map (Map)
 
@@ -25,7 +25,6 @@ import Data.Map (Map)
 -- c  ::= constant
 
 ------------------------------------------------------------------------
--- Types
 
 data Atom n = Var   n
             | Const Integer

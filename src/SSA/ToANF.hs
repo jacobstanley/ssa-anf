@@ -1,11 +1,11 @@
-module Convert (convert) where
+module SSA.ToANF (convert) where
 
 import           Data.Map (Map)
 import qualified Data.Map as Map
 import           Data.Maybe (fromMaybe)
 
-import qualified ANF as ANF
-import qualified SSA as SSA
+import qualified ANF.Syntax as ANF
+import qualified SSA.Syntax as SSA
 
 ------------------------------------------------------------------------
 
